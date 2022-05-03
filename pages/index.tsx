@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import { Fab } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
 
 const Home = () => {
   return (
@@ -12,7 +13,10 @@ const Home = () => {
       {/* this is the sidebar */}
       <div className='flex flex-col bg-[#022050] flex-[1] h-screen items-center'>
         <div>
-          <div className='my-5 text-white'><Link href={'/'}>Home</Link></div>
+          <div className='my-5 text-white flex space-x-2'>
+            <HomeIcon className='text-white' />
+            <Link href={'/'}>Home</Link>
+          </div>
           <div className='text-white'><Link href={'/profile'}>Profile</Link></div>
         </div>
       </div>
