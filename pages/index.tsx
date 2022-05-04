@@ -3,7 +3,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Checkbox } from '@mui/material';
+import { Checkbox, Fab } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
 const Home = () => {
   const [data, setData] = useState([])
@@ -14,7 +15,7 @@ const Home = () => {
 
   const getData = async () => {
     const data:any = await axios.get('http://127.0.0.1:5000')
-    if(data !== null){
+    if (data !== null) {
       setData(data.data)
     }
   }
@@ -42,15 +43,18 @@ const Home = () => {
 
 
       <div className='flex flex-[4] h-screen flex-col'>
-        {data.map((item:any, index:number)=> {
+        {data.map((item: any, index: number) => {
           return (
-            <div key={index} className = 'bg-slate-200 mt-2 mx-20 py-2 rounded-lg flex items-center relative'>
+            <div key={index} className='bg-slate-200 mt-2 mx-20 py-2 rounded-lg flex items-center relative'>
               {/* <div className='ml-3'>{item.description}</div> */}
               <div className='mx-5 md:mr-10'>{item.description}</div>
-              <Checkbox defaultChecked size="small" className='absolute right-0'/>
+              <Checkbox defaultChecked size="small" className='absolute right-0' />
             </div>
           )
         })}
+        <Fab color='default' aria-label="add" className='absolute bottom-0 right-0'>
+          <AddIcon />
+        </Fab>
       </div>
     </div>
   )
