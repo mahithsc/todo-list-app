@@ -47,9 +47,11 @@ const Home = () => {
 
 
       <div className='flex flex-[4] h-screen flex-col'>
-        {data.map((item:any)=> {
+        {data.map((item:any, index:number)=> {
           return (
-            <div>{item.description}</div>
+            <div key={index}>
+              {item.description}
+            </div>
           )
         })}
       </div>
